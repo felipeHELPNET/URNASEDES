@@ -4,6 +4,7 @@
   "description": "<h1>Urna Eletrônica - Web</h1>",
   "main": "server.js",
   "scripts": {
+    "build": "webpack",
     "start": "nodemon run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,6 +17,8 @@
     "mongoose": "^8.2.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
   }
 }
