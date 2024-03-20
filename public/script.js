@@ -1,3 +1,5 @@
+import axios from "axios";
+
 let numero = ["_", "_"];
 
 let voto1 = ["0", "1"];
@@ -50,18 +52,12 @@ function limpar() {
 }
 
 async function enviarVoto(numero, chapa) {
-  const response = await fetch("/api/votos", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ numero, chapa }),
-  });
+  try {
+    const response = await axios.post("/api/votos", { numero, chapa });
 
-  if (response.ok) {
     console.log("Voto enviado com sucesso!");
-  } else {
-    console.error("Erro ao enviar voto");
+  } catch (error) {
+    console.error("Erro ao enviar voto", error);
   }
 }
 
