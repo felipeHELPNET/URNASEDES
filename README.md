@@ -7,15 +7,3 @@
     <li>CSS3 </li>
     <li>JavaScript </li>
 </ul>
-
-<hr>
-
-<p>A urna contém 3 candidatos: </p>
-
-<ul>
-    <li>Candidato1 (45) </li>
-    <li>Candidato2 (23) </li>
-    <li>Candidato3 (15) </li>
-</ul>
-
-<img src="img/urna.png" alt="foto do projeto">
