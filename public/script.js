@@ -25,6 +25,21 @@ function registrar_num(num_voto) {
   exibir();
 }
 
+document.addEventListener("keydown", function (event) {
+  const keyPressed = event.key;
+  if (
+    !isNaN(parseInt(keyPressed)) &&
+    parseInt(keyPressed) >= 0 &&
+    parseInt(keyPressed) <= 9
+  ) {
+    registrar_num(keyPressed);
+  } else if (keyPressed === "Enter") {
+    confirmar();
+  } else if (keyPressed === "Backspace") {
+    limpar();
+  }
+});
+
 function exibir() {
   const elementoChapa = document.getElementById("CHAPA");
   if (numero.toString() == voto1.toString()) {
@@ -106,18 +121,3 @@ function confirmar() {
     limpar();
   }
 }
-
-document.addEventListener("keydown", function (event) {
-  const keyPressed = event.key;
-  if (
-    !isNaN(parseInt(keyPressed)) &&
-    parseInt(keyPressed) >= 0 &&
-    parseInt(keyPressed) <= 9
-  ) {
-    registrar_num(keyPressed);
-  } else if (keyPressed === "Enter") {
-    confirmar();
-  } else if (keyPressed === "Backspace") {
-    limpar();
-  }
-});
