@@ -12,6 +12,19 @@ let CHAPA2 = 0; // 02: Maktub - Azul
 let CHAPA3 = 0; // 03: RDA - Verde
 let CHAPA4 = 0; // 04: Visão Coletiva - Lilás
 
+function registrar_num(num_voto) {
+  if (numero[0] == "_") {
+    numero.shift();
+    numero.unshift(num_voto);
+    document.getElementById("num").innerText = numero.join(" ");
+  } else {
+    numero.pop();
+    numero.push(num_voto);
+    document.getElementById("num").innerText = numero.join(" ");
+  }
+  exibir();
+}
+
 function exibir() {
   const elementoChapa = document.getElementById("CHAPA");
   if (numero.toString() == voto1.toString()) {
@@ -30,19 +43,6 @@ function exibir() {
     elementoChapa.innerText = "";
     elementoChapa.style.color = "black";
   }
-}
-
-function registrar_num(num_voto) {
-  if (numero[0] == "_") {
-    numero.shift();
-    numero.unshift(num_voto);
-    document.getElementById("num").innerText = numero.join(" ");
-  } else {
-    numero.pop();
-    numero.push(num_voto);
-    document.getElementById("num").innerText = numero.join(" ");
-  }
-  exibir();
 }
 
 function limpar() {

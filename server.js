@@ -1,11 +1,10 @@
 import express from "express";
 import mongoose from "mongoose";
 import { connectToDB } from "./db.js";
+connectToDB();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-connectToDB();
 
 const VotoSchema = new mongoose.Schema({
   numero: String,
