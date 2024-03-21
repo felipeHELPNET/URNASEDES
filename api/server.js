@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import { connectToDB } from "./api/db.js";
+import { connectToDB } from "./db.js";
 connectToDB();
 
 const app = express();
