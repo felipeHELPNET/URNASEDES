@@ -1,10 +1,6 @@
-import express from "express";
+// api/votos.js
+import { connectToDB } from "./db.js";
 import mongoose from "mongoose";
-import { connectToDB } from "./api/db.js";
-connectToDB();
-
-const app = express();
-const PORT = process.env.PORT || 3000;
 
 const VotoSchema = new mongoose.Schema({
   numero: String,
@@ -13,10 +9,9 @@ const VotoSchema = new mongoose.Schema({
 
 const Voto = mongoose.model("Voto", VotoSchema);
 
-app.use(express.static("public"));
-app.use(express.json());
+module.exports = async (req, res) => {
+  await connectToDB();
 
-app.post("/api/votos", async (req, res) => {
   const { numero, chapa } = req.body;
   try {
     await Voto.create({ numero, chapa });
@@ -26,8 +21,4 @@ app.post("/api/votos", async (req, res) => {
     console.error("Erro ao salvar voto no DB:", error);
     res.status(500).send({ message: "Erro ao salvar voto no DB" });
   }
-});
-
-app.listen(PORT, () => {
-  console.log(`Servidor rodando`);
-});
+};
